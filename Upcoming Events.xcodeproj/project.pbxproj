@@ -14,6 +14,10 @@
 		7B631AE723720C7C00E96734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B631AE623720C7C00E96734 /* Assets.xcassets */; };
 		7B631AEA23720C7C00E96734 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B631AE823720C7C00E96734 /* LaunchScreen.storyboard */; };
 		7B631AF523720C7D00E96734 /* Upcoming_EventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631AF423720C7D00E96734 /* Upcoming_EventsTests.swift */; };
+		7B631B0023720C9500E96734 /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B631AFF23720C9500E96734 /* mock.json */; };
+		7B631B0323720CD300E96734 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631B0223720CD300E96734 /* Event.swift */; };
+		7B631B0523721E8100E96734 /* EventsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631B0423721E8100E96734 /* EventsAPI.swift */; };
+		7B631B07237242A900E96734 /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631B06237242A900E96734 /* DateUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		7B631AF023720C7D00E96734 /* Upcoming EventsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Upcoming EventsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B631AF423720C7D00E96734 /* Upcoming_EventsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upcoming_EventsTests.swift; sourceTree = "<group>"; };
 		7B631AF623720C7D00E96734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B631AFF23720C9500E96734 /* mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
+		7B631B0223720CD300E96734 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		7B631B0423721E8100E96734 /* EventsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsAPI.swift; sourceTree = "<group>"; };
+		7B631B06237242A900E96734 /* DateUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,7 @@
 		7B631ADC23720C7B00E96734 /* Upcoming Events */ = {
 			isa = PBXGroup;
 			children = (
+				7B631B0123720CA300E96734 /* Events API */,
 				7B631ADD23720C7B00E96734 /* AppDelegate.swift */,
 				7B631ADF23720C7B00E96734 /* SceneDelegate.swift */,
 				7B631AE123720C7B00E96734 /* ViewController.swift */,
@@ -97,6 +106,17 @@
 				7B631AF623720C7D00E96734 /* Info.plist */,
 			);
 			path = "Upcoming EventsTests";
+			sourceTree = "<group>";
+		};
+		7B631B0123720CA300E96734 /* Events API */ = {
+			isa = PBXGroup;
+			children = (
+				7B631AFF23720C9500E96734 /* mock.json */,
+				7B631B0223720CD300E96734 /* Event.swift */,
+				7B631B0423721E8100E96734 /* EventsAPI.swift */,
+				7B631B06237242A900E96734 /* DateUtilities.swift */,
+			);
+			path = "Events API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +203,7 @@
 				7B631AEA23720C7C00E96734 /* LaunchScreen.storyboard in Resources */,
 				7B631AE723720C7C00E96734 /* Assets.xcassets in Resources */,
 				7B631AE523720C7B00E96734 /* Main.storyboard in Resources */,
+				7B631B0023720C9500E96734 /* mock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B631B07237242A900E96734 /* DateUtilities.swift in Sources */,
+				7B631B0523721E8100E96734 /* EventsAPI.swift in Sources */,
+				7B631B0323720CD300E96734 /* Event.swift in Sources */,
 				7B631AE223720C7B00E96734 /* ViewController.swift in Sources */,
 				7B631ADE23720C7B00E96734 /* AppDelegate.swift in Sources */,
 				7B631AE023720C7B00E96734 /* SceneDelegate.swift in Sources */,
