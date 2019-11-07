@@ -10,22 +10,20 @@ import Foundation
 
 class EventsAPI {
     public static var shared = EventsAPI()
-    var fileName             = Constant.filename
-    var events               = [Event]()
     var eventsByDate         = [[Event]]()
     
-    private init() {
-        guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
+    private init()? {
+        guard let url = Bundle.main.url(forResource: Constant.filename,
+                                        withExtension: Constant.fileExtension),
             let data = try? Data(contentsOf: url) else { return }
         
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(.dateFormatter)
-        guard let jsonData = try? decoder.decode([Event].self, from: data) else { return }
-        self.events = jsonData
-        self.eventsByDate = bucketEventsByDay(events)
+        guard let events = try? decoder.decode([Event].self, from: data) else { return }
+        self.eventsByDate = groupEventsByDay(events)
     }
     
-    func bucketEventsByDay(_ events: [Event]) -> [[Event]] {
+    func groupEventsByDay(_ events: [Event]) -> [[Event]] {
         let sortedEvents    = events.sorted { $0.startDateTime < $1.startDateTime }
         let calendar        = Calendar.current
         var currentDate     = calendar.dateComponents([.day], from: sortedEvents.first!.startDateTime).day
@@ -38,12 +36,28 @@ class EventsAPI {
             if eventDate == currentDate {
                 temp.append(event)
             } else {
-                eventsForTheDay.append(temp)
+                eventsForTheDay.append(markConflictingEvents(temp))
                 currentDate = eventDate
                 temp = [event]
             }
         }
-        eventsForTheDay.append(temp)
+        eventsForTheDay.append(markConflictingEvents(temp))
         return eventsForTheDay
+    }
+    
+    // Check if events are conflicting with each other
+    func markConflictingEvents(_ events: [Event]) -> [Event] {
+        var events = events
+        for i in 0 ..< events.count - 1 {
+            for j in i + 1 ..< events.count {
+                if events[i].endDateTime > events[j].startDateTime {
+                    events[i].conflicts = true
+                    events[j].conflicts = true
+                } else {
+                    continue
+                }
+            }
+        }
+        return events
     }
 }

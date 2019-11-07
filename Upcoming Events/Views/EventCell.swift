@@ -15,8 +15,25 @@ class EventCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = Constant.eventCornerRadius
         self.layer.masksToBounds = true
         self.backgroundColor = Color.eventBackgroundColor
+    }
+    
+    func updateAppearence(for event: Event) {
+        self.title.text = event.title
+        if event.conflicts {
+            self.time.text  = Constant.conflictSymbol + getTime(event)
+            self.time.textColor = .systemRed
+        } else {
+            self.time.text  = getTime(event)
+            self.time.textColor = Color.eventTextSecondaryColor
+        }
+    }
+    
+    func getTime(_ event: Event) -> String {
+        let start = event.startDateTime.toString(with: Constant.onlyTime)
+        let end   = event.endDateTime.toString(with: Constant.onlyTime)
+        return "\(start) to \(end)"
     }
 }

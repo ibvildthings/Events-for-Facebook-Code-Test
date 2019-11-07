@@ -11,21 +11,19 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let eventAPI         = EventsAPI.shared
-    var eventsByDate     = [[Event]]()
-    let cellIdentifier   = "eventCell"
-    let headerIdentifier = "headerCell"
+    let eventsAPI       = EventsAPI.shared
+    var eventsByDate    = [[Event]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventsByDate = eventAPI.eventsByDate
+        eventsByDate = eventsAPI.eventsByDate
         setUpNavigationBar()
     }
     
     func setUpNavigationBar() {
-        guard let navBar = self.navigationController?.navigationBar else { return }
+        guard let navBar    = self.navigationController?.navigationBar else { return }
         navBar.barTintColor = Color.headerColor
-        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.headerTextColor!]
+        navBar.titleTextAttributes      = [NSAttributedString.Key.foregroundColor: Color.headerTextColor!]
         navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.headerTextColor!]
     }
 }
@@ -42,17 +40,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! EventCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.cellIdentifier,
+                                                      for: indexPath) as! EventCell
         let event = eventsByDate[indexPath.section][indexPath.row]
-        cell.title.text = event.title
-        cell.time.text  = getTime(event)
+        cell.updateAppearence(for: event)
         return cell
-    }
-    
-    func getTime(_ event: Event) -> String {
-        let start = event.startDateTime.toString(with: Constant.onlyTime)
-        let end   = event.endDateTime.toString(with: Constant.onlyTime)
-        return "\(start) to \(end)"
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -61,11 +53,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         if kind == UICollectionView.elementKindSectionHeader {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                             withReuseIdentifier: headerIdentifier,
+                                                                             withReuseIdentifier: Constant.headerIdentifier,
                                                                              for: indexPath) as! EventHeaderView
             let event = eventsByDate[indexPath.section][indexPath.row]
-            let day = event.startDateTime.toString(with: Constant.headerMonth)
-            headerView.title.text = day
+            headerView.title.text = event.startDateTime.toString(with: Constant.headerMonth)
             return headerView
         }
         return UICollectionReusableView()
@@ -74,16 +65,18 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
 // MARK: Flow Layout Methods
 extension ViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width * 0.85, height: Constant.eventCellHeight)
+        let cellWidth = collectionView.bounds.width * Constant.eventCellWidthFactor
+        return CGSize(width: cellWidth,
+                      height: Constant.eventCellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: Constant.eventHeaderHeight)
+        return CGSize(width: collectionView.frame.size.width,
+                      height: Constant.eventHeaderHeight)
     }
 }

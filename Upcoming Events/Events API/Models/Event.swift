@@ -12,6 +12,7 @@ struct Event: Codable {
     var title: String
     var startDateTime: Date
     var endDateTime: Date
+    var conflicts = false
     
     enum CodingKeys: String, CodingKey {
         case title, startDateTime = "start", endDateTime = "end"
