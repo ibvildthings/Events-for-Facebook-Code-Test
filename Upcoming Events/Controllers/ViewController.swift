@@ -11,20 +11,26 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let eventAPI = EventsAPI.shared
-    var events = [Event]()
-    var eventsByDate: [[Event]] = [[]]
-    let cellIdentifier = "eventCell"
+    let eventAPI         = EventsAPI.shared
+    var eventsByDate     = [[Event]]()
+    let cellIdentifier   = "eventCell"
     let headerIdentifier = "headerCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        events = eventAPI.events.sorted { $0.startDateTime < $1.startDateTime }
-        eventsByDate = eventAPI.bucketEventsByDay(events)
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.headerTextColor!]
+        eventsByDate = eventAPI.eventsByDate
+        setUpNavigationBar()
+    }
+    
+    func setUpNavigationBar() {
+        guard let navBar = self.navigationController?.navigationBar else { return }
+        navBar.barTintColor = Color.headerColor
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.headerTextColor!]
+        navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.headerTextColor!]
     }
 }
 
+// MARK: Collection View Methods
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return eventsByDate.count
@@ -39,14 +45,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! EventCell
         let event = eventsByDate[indexPath.section][indexPath.row]
         cell.title.text = event.title
-        cell.time.text = getTime(event)
+        cell.time.text  = getTime(event)
         return cell
     }
     
     func getTime(_ event: Event) -> String {
-        let start = event.startDateTime.toString(dateFormat: "h:mm a")
-        let end   = event.endDateTime.toString(dateFormat: "h:mm a")
-        return "\(start) - \(end)"
+        let start = event.startDateTime.toString(with: Constant.onlyTime)
+        let end   = event.endDateTime.toString(with: Constant.onlyTime)
+        return "\(start) to \(end)"
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -58,7 +64,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
                                                                              withReuseIdentifier: headerIdentifier,
                                                                              for: indexPath) as! EventHeaderView
             let event = eventsByDate[indexPath.section][indexPath.row]
-            let day = event.startDateTime.toString(dateFormat: "MMM d")
+            let day = event.startDateTime.toString(with: Constant.headerMonth)
             headerView.title.text = day
             return headerView
         }
@@ -66,17 +72,18 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
+// MARK: Flow Layout Methods
 extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width * 0.85, height: 90)
+        return CGSize(width: collectionView.bounds.width * 0.85, height: Constant.eventCellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: CGFloat(30))
+        return CGSize(width: collectionView.frame.size.width, height: Constant.eventHeaderHeight)
     }
 }

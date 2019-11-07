@@ -9,8 +9,14 @@
 import UIKit
 
 enum Constant {
-    static let datasource = "mock"
-    static let appName = "Events"
+    static let filename = "datasource"
+    static let appName  = "🎊 Events"
+    
+    static let eventCellHeight: CGFloat = 90
+    static let eventHeaderHeight: CGFloat = 30
+    
+    static let onlyTime    = "h:mm a"
+    static let headerMonth = "MMM d"
 }
 
 enum Color {

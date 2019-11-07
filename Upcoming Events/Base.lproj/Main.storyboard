@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Va7-0q-JdT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15508"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +13,7 @@
         <!--Events-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Events" id="BYZ-38-t0r" customClass="ViewController" customModule="Upcoming_Events" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Events" id="BYZ-38-t0r" customClass="ViewController" customModule="Events_by_Facebook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +28,7 @@
                                     <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventCell" id="2uK-8B-k5y" userLabel="Event Cell" customClass="EventCell" customModule="Upcoming_Events" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventCell" id="2uK-8B-k5y" userLabel="Event Cell" customClass="EventCell" customModule="Events_by_Facebook" customModuleProvider="target">
                                         <rect key="frame" x="8" y="38" width="150" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RYg-pY-cQ4">
@@ -63,7 +64,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerCell" id="YEl-An-rlH" customClass="EventHeaderView" customModule="Upcoming_Events" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerCell" id="YEl-An-rlH" customClass="EventHeaderView" customModule="Events_by_Facebook" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -102,7 +103,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Events" largeTitleDisplayMode="always" id="R6E-ba-BIy"/>
+                    <navigationItem key="navigationItem" title="🎊 Events" largeTitleDisplayMode="always" id="R6E-ba-BIy"/>
                     <connections>
                         <outlet property="collectionView" destination="Vzs-Me-NFj" id="sZZ-59-1jC"/>
                     </connections>
@@ -137,7 +138,7 @@
             <color red="0.9137254901960784" green="0.92156862745098034" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Date Header">
-            <color red="0.95294117647058818" green="0.93333333333333335" blue="0.81960784313725488" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.95294117647058818" green="0.93333333333333335" blue="0.81960784313725488" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Event Text Primary">
             <color red="0.11372549019607843" green="0.12941176470588237" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
