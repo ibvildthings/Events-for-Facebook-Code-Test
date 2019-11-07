@@ -10,14 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var somethingIsBrokenView: UIView!
     
-    let eventsAPI       = EventsAPI.shared
-    var eventsByDate    = [[Event]]()
-    
+    var dataSource = [[Event]]()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventsByDate = eventsAPI.eventsByDate
         setUpNavigationBar()
+        setupViews()
     }
     
     func setUpNavigationBar() {
@@ -26,23 +26,35 @@ class ViewController: UIViewController {
         navBar.titleTextAttributes      = [NSAttributedString.Key.foregroundColor: Color.headerTextColor!]
         navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.headerTextColor!]
     }
+    
+    func setupViews() {
+        if let eventsAPI = EventsAPI.shared {
+            dataSource = eventsAPI.eventsByDate
+            collectionView.isHidden = false
+            somethingIsBrokenView.isHidden = true
+        } else {
+            collectionView.isHidden = true
+            somethingIsBrokenView.isHidden = false
+        }
+    }
+
 }
 
 // MARK: Collection View Methods
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return eventsByDate.count
+        return dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return eventsByDate[section].count
+        return dataSource[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.cellIdentifier,
                                                       for: indexPath) as! EventCell
-        let event = eventsByDate[indexPath.section][indexPath.row]
+        let event = dataSource[indexPath.section][indexPath.row]
         cell.updateAppearence(for: event)
         return cell
     }
@@ -55,7 +67,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                              withReuseIdentifier: Constant.headerIdentifier,
                                                                              for: indexPath) as! EventHeaderView
-            let event = eventsByDate[indexPath.section][indexPath.row]
+            let event = dataSource[indexPath.section][indexPath.row]
             headerView.title.text = event.startDateTime.toString(with: Constant.headerMonth)
             return headerView
         }

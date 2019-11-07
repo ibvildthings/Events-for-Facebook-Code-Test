@@ -18,8 +18,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DnQ-BN-lZC" userLabel="Something Is Broken View">
+                                <rect key="frame" x="0.0" y="148.5" width="414" height="747.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="JbE-DB-oog" userLabel="Image and Message Stack View">
+                                        <rect key="frame" x="8" y="20" width="398" height="371"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Something Broken" translatesAutoresizingMaskIntoConstraints="NO" id="q0j-ez-eAW" userLabel="Something Broken Image">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="300"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="S21-9v-aMl"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="414" id="quH-RF-QGs"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3d-uD-QxP">
+                                                <rect key="frame" x="90" y="330" width="218.5" height="41"/>
+                                                <string key="text">Something has gone wrong. 
+Our top minds are on it!</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="Event Text Primary"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="JbE-DB-oog" firstAttribute="leading" secondItem="DnQ-BN-lZC" secondAttribute="leading" constant="8" id="FZn-in-Enr"/>
+                                    <constraint firstAttribute="trailing" secondItem="JbE-DB-oog" secondAttribute="trailing" constant="8" id="Fuo-X7-VkI"/>
+                                    <constraint firstItem="JbE-DB-oog" firstAttribute="top" secondItem="DnQ-BN-lZC" secondAttribute="top" constant="20" id="kWX-Od-vfo"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vzs-Me-NFj">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="148.5" width="414" height="747.5"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xT0-fO-Sgy">
                                     <size key="itemSize" width="150" height="150"/>
@@ -96,16 +127,21 @@
                         </subviews>
                         <color key="backgroundColor" name="Header"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DnQ-BN-lZC" secondAttribute="trailing" id="9ON-Ge-eU6"/>
+                            <constraint firstItem="DnQ-BN-lZC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BJh-e1-CMF"/>
                             <constraint firstAttribute="bottom" secondItem="Vzs-Me-NFj" secondAttribute="bottom" id="PQn-0l-i93"/>
                             <constraint firstItem="Vzs-Me-NFj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Qt7-5t-NxV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vzs-Me-NFj" secondAttribute="trailing" id="Sse-ab-y54"/>
                             <constraint firstItem="Vzs-Me-NFj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Yag-nR-Ia5"/>
+                            <constraint firstAttribute="bottom" secondItem="DnQ-BN-lZC" secondAttribute="bottom" id="i2G-9V-Q2k"/>
+                            <constraint firstItem="DnQ-BN-lZC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="itH-wQ-XAm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="🎊 Events" largeTitleDisplayMode="always" id="R6E-ba-BIy"/>
                     <connections>
                         <outlet property="collectionView" destination="Vzs-Me-NFj" id="sZZ-59-1jC"/>
+                        <outlet property="somethingIsBrokenView" destination="DnQ-BN-lZC" id="vU6-rw-Njm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -134,6 +170,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Something Broken" width="5000" height="5000"/>
         <namedColor name="Background">
             <color red="0.9137254901960784" green="0.92156862745098034" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

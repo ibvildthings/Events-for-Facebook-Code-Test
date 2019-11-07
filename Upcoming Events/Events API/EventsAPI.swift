@@ -12,14 +12,14 @@ class EventsAPI {
     public static var shared = EventsAPI()
     var eventsByDate         = [[Event]]()
     
-    private init()? {
+    private init?() {
         guard let url = Bundle.main.url(forResource: Constant.filename,
                                         withExtension: Constant.fileExtension),
-            let data = try? Data(contentsOf: url) else { return }
+            let data = try? Data(contentsOf: url) else { return nil }
         
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(.dateFormatter)
-        guard let events = try? decoder.decode([Event].self, from: data) else { return }
+        guard let events = try? decoder.decode([Event].self, from: data) else { return nil }
         self.eventsByDate = groupEventsByDay(events)
     }
     
