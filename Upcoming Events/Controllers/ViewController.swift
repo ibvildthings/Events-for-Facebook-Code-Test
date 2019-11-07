@@ -43,7 +43,7 @@ class ViewController: UIViewController {
             else {
                 eventsByDate.append(eventForDay)
                 currentDate = eventDate
-                eventForDay = []
+                eventForDay = [event]
             }
         }
         eventsByDate.append(eventForDay)

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7B631ADE23720C7B00E96734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631ADD23720C7B00E96734 /* AppDelegate.swift */; };
-		7B631AE023720C7B00E96734 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631ADF23720C7B00E96734 /* SceneDelegate.swift */; };
 		7B631AE223720C7B00E96734 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631AE123720C7B00E96734 /* ViewController.swift */; };
 		7B631AE523720C7B00E96734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B631AE323720C7B00E96734 /* Main.storyboard */; };
 		7B631AE723720C7C00E96734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B631AE623720C7C00E96734 /* Assets.xcassets */; };
@@ -20,6 +19,7 @@
 		7B631B07237242A900E96734 /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631B06237242A900E96734 /* DateUtilities.swift */; };
 		7B631B0A2373026900E96734 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631B092373026900E96734 /* EventCell.swift */; };
 		7B631B0C23738AEB00E96734 /* EventHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631B0B23738AEB00E96734 /* EventHeaderView.swift */; };
+		7B631B0F2373D36B00E96734 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631B0E2373D36B00E96734 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,9 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7B631ADA23720C7B00E96734 /* Upcoming Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Upcoming Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B631ADA23720C7B00E96734 /* Events by Facebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Events by Facebook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B631ADD23720C7B00E96734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7B631ADF23720C7B00E96734 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7B631AE123720C7B00E96734 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7B631AE423720C7B00E96734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B631AE623720C7C00E96734 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 		7B631B06237242A900E96734 /* DateUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilities.swift; sourceTree = "<group>"; };
 		7B631B092373026900E96734 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		7B631B0B23738AEB00E96734 /* EventHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHeaderView.swift; sourceTree = "<group>"; };
+		7B631B0E2373D36B00E96734 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 		7B631ADB23720C7B00E96734 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7B631ADA23720C7B00E96734 /* Upcoming Events.app */,
+				7B631ADA23720C7B00E96734 /* Events by Facebook.app */,
 				7B631AF023720C7D00E96734 /* Upcoming EventsTests.xctest */,
 			);
 			name = Products;
@@ -92,10 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				7B631B0123720CA300E96734 /* Events API */,
-				7B631ADD23720C7B00E96734 /* AppDelegate.swift */,
-				7B631ADF23720C7B00E96734 /* SceneDelegate.swift */,
-				7B631AE123720C7B00E96734 /* ViewController.swift */,
+				7B631B102373D3BF00E96734 /* Controllers */,
 				7B631B082373023600E96734 /* Views */,
+				7B631ADD23720C7B00E96734 /* AppDelegate.swift */,
+				7B631B0E2373D36B00E96734 /* SceneDelegate.swift */,
 				7B631AE323720C7B00E96734 /* Main.storyboard */,
 				7B631AE623720C7C00E96734 /* Assets.xcassets */,
 				7B631AE823720C7C00E96734 /* LaunchScreen.storyboard */,
@@ -116,8 +116,8 @@
 		7B631B0123720CA300E96734 /* Events API */ = {
 			isa = PBXGroup;
 			children = (
-				7B631AFF23720C9500E96734 /* mock.json */,
-				7B631B0223720CD300E96734 /* Event.swift */,
+				7B631B0D2373D22200E96734 /* Models */,
+				7B631B112373D43300E96734 /* Data */,
 				7B631B0423721E8100E96734 /* EventsAPI.swift */,
 				7B631B06237242A900E96734 /* DateUtilities.swift */,
 			);
@@ -131,6 +131,30 @@
 				7B631B0B23738AEB00E96734 /* EventHeaderView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7B631B0D2373D22200E96734 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7B631B0223720CD300E96734 /* Event.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7B631B102373D3BF00E96734 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7B631AE123720C7B00E96734 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7B631B112373D43300E96734 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7B631AFF23720C9500E96734 /* mock.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +174,7 @@
 			);
 			name = "Upcoming Events";
 			productName = "Upcoming Events";
-			productReference = 7B631ADA23720C7B00E96734 /* Upcoming Events.app */;
+			productReference = 7B631ADA23720C7B00E96734 /* Events by Facebook.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7B631AEF23720C7D00E96734 /* Upcoming EventsTests */ = {
@@ -240,9 +264,9 @@
 				7B631B0323720CD300E96734 /* Event.swift in Sources */,
 				7B631AE223720C7B00E96734 /* ViewController.swift in Sources */,
 				7B631ADE23720C7B00E96734 /* AppDelegate.swift in Sources */,
-				7B631AE023720C7B00E96734 /* SceneDelegate.swift in Sources */,
 				7B631B0C23738AEB00E96734 /* EventHeaderView.swift in Sources */,
 				7B631B0A2373026900E96734 /* EventCell.swift in Sources */,
+				7B631B0F2373D36B00E96734 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +358,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -388,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -410,7 +434,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.Upcoming-Events";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Events by Facebook";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -428,7 +452,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.Upcoming-Events";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Events by Facebook";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
