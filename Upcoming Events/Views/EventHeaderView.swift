@@ -10,4 +10,10 @@ import UIKit
 
 class EventHeaderView: UICollectionReusableView {
     @IBOutlet weak var title: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor(named: "Date Header Outline")?.cgColor
+    }
 }
