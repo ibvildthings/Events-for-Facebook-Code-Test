@@ -10,5 +10,4 @@ import UIKit
 
 class EventHeaderView: UICollectionReusableView {
     @IBOutlet weak var title: UILabel!
-    
 }

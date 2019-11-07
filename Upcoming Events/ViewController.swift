@@ -21,6 +21,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         events = eventAPI.events.sorted{ $0.startDateTime < $1.startDateTime }
         eventsByDate = bucketEventsByDay(events)
+//        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "Header")
+       self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+
+        
     }
     
     
@@ -87,7 +91,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension ViewController:  UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width * 0.8, height: 100)
+        return CGSize(width: collectionView.bounds.width * 0.85, height: 90)
         if indexPath.row.isMultiple(of: 3) {
             return CGSize(width: collectionView.visibleSize.width, height: 100)
         }
