@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var events = [Event]()
     var eventsByDate: [[Event]] = [[]]
     let cellIdentifier = "eventCell"
+    let headerIdentifier = "headerCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +75,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         if kind == UICollectionView.elementKindSectionHeader {
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerCell", for: indexPath) as! EventHeaderView
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! EventHeaderView
             let event = eventsByDate[indexPath.section][indexPath.row]
             let day = event.startDateTime.toString(dateFormat: "MMM d")
             headerView.title.text = day
@@ -86,7 +87,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension ViewController:  UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 100)
+        return CGSize(width: collectionView.bounds.width * 0.8, height: 100)
         if indexPath.row.isMultiple(of: 3) {
             return CGSize(width: collectionView.visibleSize.width, height: 100)
         }
