@@ -9,29 +9,19 @@
 import Foundation
 
 extension DateFormatter {
-  static let dateFormatter: DateFormatter = {
+    static let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .medium
     formatter.timeStyle = .short
     formatter.dateFormat = "MMMM d, yyyy h:mm a"
     return formatter
-  }()
-    
-    static let timeFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        formatter.dateFormat = "h:mm a"
-        return formatter
     }()
 }
 
-extension Date
-{
-    func toString( dateFormat format: String ) -> String
-    {
+extension Date {
+    func toString( dateFormat format: String ) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
-
 }

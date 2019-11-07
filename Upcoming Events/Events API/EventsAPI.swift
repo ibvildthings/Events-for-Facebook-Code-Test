@@ -10,7 +10,7 @@ import Foundation
 
 class EventsAPI {
     public static var shared = EventsAPI()
-    var fileName = "mock"
+    var fileName = Constant.datasource
     var events: [Event] = []
     
     private init() {
@@ -20,5 +20,26 @@ class EventsAPI {
         decoder.dateDecodingStrategy = .formatted(.dateFormatter)
         guard let jsonData = try? decoder.decode([Event].self, from: data) else { return }
         self.events = jsonData
+    }
+    
+    func bucketEventsByDay(_ events: [Event]) -> [[Event]] {
+        let calendar = Calendar.current
+        var currentDate = calendar.dateComponents([.day], from: events.first!.startDateTime).day
+        
+        var eventForDay = [Event]()
+        var eventsByDate = [[Event]]()
+        for event in events {
+            let eventDate = calendar.dateComponents([.day], from: event.startDateTime).day
+            
+            if eventDate == currentDate {
+                eventForDay.append(event)
+            } else {
+                eventsByDate.append(eventForDay)
+                currentDate = eventDate
+                eventForDay = [event]
+            }
+        }
+        eventsByDate.append(eventForDay)
+        return eventsByDate
     }
 }

@@ -17,6 +17,6 @@ class EventCell: UICollectionViewCell {
 
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
-        self.backgroundColor = UIColor(named: "Event Background")
+        self.backgroundColor = Color.eventBackgroundColor
     }
 }

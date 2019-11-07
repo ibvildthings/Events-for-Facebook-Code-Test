@@ -14,6 +14,6 @@ class EventHeaderView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(named: "Date Header Outline")?.cgColor
+        self.layer.borderColor = Color.dateHeaderOutline?.cgColor
     }
 }
