@@ -13,7 +13,7 @@
         <!--Events-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Events" id="BYZ-38-t0r" customClass="ViewController" customModule="Events_by_Facebook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Events" id="BYZ-38-t0r" customClass="EventViewController" customModule="Events" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DnQ-BN-lZC" userLabel="Something Is Broken View">
                                 <rect key="frame" x="0.0" y="148.5" width="414" height="747.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="JbE-DB-oog" userLabel="Image and Message Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="JbE-DB-oog" userLabel="Image and Message Stack View">
                                         <rect key="frame" x="8" y="20" width="398" height="371"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Something Broken" translatesAutoresizingMaskIntoConstraints="NO" id="q0j-ez-eAW" userLabel="Something Broken Image">
@@ -95,7 +95,7 @@ Our top minds are on it!</string>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerCell" id="YEl-An-rlH" customClass="EventHeaderView" customModule="Events_by_Facebook" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="headerCell" id="YEl-An-rlH" customClass="EventHeaderView" customModule="Events_by_Facebook" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>

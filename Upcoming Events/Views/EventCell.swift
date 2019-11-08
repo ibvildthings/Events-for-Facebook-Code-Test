@@ -24,7 +24,7 @@ class EventCell: UICollectionViewCell {
         self.title.text = event.title
         if event.conflicts {
             self.time.text  = Constant.conflictSymbol + getTime(event)
-            self.time.textColor = .systemRed
+            self.time.textColor = Color.eventTextAlertColor
         } else {
             self.time.text  = getTime(event)
             self.time.textColor = Color.eventTextSecondaryColor

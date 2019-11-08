@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class EventViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var somethingIsBrokenView: UIView!
     
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     func setupViews() {
         if let eventsAPI = EventsAPI.shared {
-            dataSource = eventsAPI.eventsByDate
+            dataSource = eventsAPI.eventsGroupedByDate
             collectionView.isHidden = false
             somethingIsBrokenView.isHidden = true
         } else {
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: Collection View Methods
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension EventViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return dataSource.count
     }
@@ -76,7 +76,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 }
 
 // MARK: Flow Layout Methods
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension EventViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

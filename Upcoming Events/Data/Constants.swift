@@ -11,7 +11,6 @@ import UIKit
 enum Constant {
     static let filename       = "datasource"
     static let fileExtension  = "json"
-    static let appName        = "🎊 Events"
     static let conflictSymbol = "☠️ "
     
     static let eventCellHeight: CGFloat         = 90
@@ -33,4 +32,5 @@ enum Color {
     static let headerColor              = UIColor(named: "Header")
     static let headerTextColor          = UIColor(named: "Header Text")
     static let eventTextSecondaryColor  = UIColor(named: "Event Text Secondary")
+    static let eventTextAlertColor      = UIColor.systemRed
 }

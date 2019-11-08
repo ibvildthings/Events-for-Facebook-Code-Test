@@ -10,7 +10,7 @@ import Foundation
 
 class EventsAPI {
     public static var shared = EventsAPI()
-    var eventsByDate         = [[Event]]()
+    var eventsGroupedByDate  = [[Event]]()
     
     private init?() {
         guard let url = Bundle.main.url(forResource: Constant.filename,
@@ -20,9 +20,11 @@ class EventsAPI {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(.dateFormatter)
         guard let events = try? decoder.decode([Event].self, from: data) else { return nil }
-        self.eventsByDate = groupEventsByDay(events)
+        self.eventsGroupedByDate = groupEventsByDay(events)
     }
     
+//    Takes in an unsorted events list and groups events taking place on the same day.
+//    The sorting algorithm takes O(n log n)
     func groupEventsByDay(_ events: [Event]) -> [[Event]] {
         let sortedEvents    = events.sorted { $0.startDateTime < $1.startDateTime }
         let calendar        = Calendar.current
@@ -45,18 +47,20 @@ class EventsAPI {
         return eventsForTheDay
     }
     
-    // Check if events are conflicting with each other
+//     Given a sorted list, check if events are conflicting with each other.
+//    This runs in O(n).
     func markConflictingEvents(_ events: [Event]) -> [Event] {
         var events = events
-        for i in 0 ..< events.count - 1 {
-            for j in i + 1 ..< events.count {
-                if events[i].endDateTime > events[j].startDateTime {
-                    events[i].conflicts = true
-                    events[j].conflicts = true
-                } else {
-                    continue
-                }
+        guard var latestEndingEventTime = events.first?.endDateTime else { return [] }
+        
+        for i in 1 ..< events.count {
+            if latestEndingEventTime > events[i].startDateTime {
+                events[i].conflicts = true
+                events[i-1].conflicts = true
+                latestEndingEventTime = max(latestEndingEventTime, events[i].endDateTime)
+                continue
             }
+            latestEndingEventTime = events[i].endDateTime
         }
         return events
     }
