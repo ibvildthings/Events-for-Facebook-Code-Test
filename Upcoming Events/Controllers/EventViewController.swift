@@ -29,15 +29,14 @@ class EventViewController: UIViewController {
     
     func setupViews() {
         if let eventsAPI = EventsAPI.shared {
-            dataSource = eventsAPI.eventsGroupedByDate
-            collectionView.isHidden = false
-            somethingIsBrokenView.isHidden = true
+            dataSource                      = eventsAPI.eventsGroupedByDate
+            collectionView.isHidden         = false
+            somethingIsBrokenView.isHidden  = true
         } else {
-            collectionView.isHidden = true
-            somethingIsBrokenView.isHidden = false
+            collectionView.isHidden         = true
+            somethingIsBrokenView.isHidden  = false
         }
     }
-
 }
 
 // MARK: Collection View Methods

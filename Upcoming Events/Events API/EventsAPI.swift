@@ -24,7 +24,7 @@ class EventsAPI {
     }
     
 //    Takes in an unsorted events list and groups events taking place on the same day.
-//    The sorting algorithm takes O(n log n)
+//    The sorting algorithm takes O(n log n).
     func groupEventsByDay(_ events: [Event]) -> [[Event]] {
         let sortedEvents    = events.sorted { $0.startDateTime < $1.startDateTime }
         let calendar        = Calendar.current
@@ -47,8 +47,10 @@ class EventsAPI {
         return eventsForTheDay
     }
     
-//     Given a sorted list, check if events are conflicting with each other.
+//    Given a sorted list, check if events are conflicting with each other.
 //    This runs in O(n).
+//    It is mentioned that all the events start and end on the same day.
+//    That's why I am checking for conflicts only for the events on the same day.
     func markConflictingEvents(_ events: [Event]) -> [Event] {
         var events = events
         guard var latestEndingEventTime = events.first?.endDateTime else { return [] }

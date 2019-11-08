@@ -11,7 +11,7 @@ import UIKit
 enum Constant {
     static let filename       = "datasource"
     static let fileExtension  = "json"
-    static let conflictSymbol = "☠️ "
+    static let conflictSymbol = "🧐 "
     
     static let eventCellHeight: CGFloat         = 90
     static let eventHeaderHeight: CGFloat       = 30
