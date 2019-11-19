@@ -19,7 +19,6 @@
 		7B631B0A2373026900E96734 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631B092373026900E96734 /* EventCell.swift */; };
 		7B631B0C23738AEB00E96734 /* EventHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631B0B23738AEB00E96734 /* EventHeaderView.swift */; };
 		7B631B132373D96400E96734 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B631B122373D96400E96734 /* Constants.swift */; };
-		7BC5EAE42374F8D900B7ED83 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EAE32374F8D900B7ED83 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +47,6 @@
 		7B631B092373026900E96734 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		7B631B0B23738AEB00E96734 /* EventHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHeaderView.swift; sourceTree = "<group>"; };
 		7B631B122373D96400E96734 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7BC5EAE32374F8D900B7ED83 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +92,6 @@
 				7B631B102373D3BF00E96734 /* Controllers */,
 				7B631B082373023600E96734 /* Views */,
 				7B631B142373DF1F00E96734 /* Helpers */,
-				7BC5EAE32374F8D900B7ED83 /* README.md */,
 				7B631ADD23720C7B00E96734 /* AppDelegate.swift */,
 				7B631AE323720C7B00E96734 /* Main.storyboard */,
 				7B631AE623720C7C00E96734 /* Assets.xcassets */,
@@ -238,7 +235,6 @@
 			files = (
 				7B631AEA23720C7C00E96734 /* LaunchScreen.storyboard in Resources */,
 				7B631AE723720C7C00E96734 /* Assets.xcassets in Resources */,
-				7BC5EAE42374F8D900B7ED83 /* README.md in Resources */,
 				7B631AE523720C7B00E96734 /* Main.storyboard in Resources */,
 				7B631B0023720C9500E96734 /* datasource.json in Resources */,
 			);
