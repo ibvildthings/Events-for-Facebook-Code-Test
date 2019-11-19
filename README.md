@@ -1,4 +1,4 @@
-# Events by Facebook
+# 🎉 Events by Facebook
 
 It was fun working on this project, here are some of the things I kept in mind while building this app. I also wanted to explain some of my decisions in this document.
 
@@ -28,9 +28,6 @@ I used Swift Lint to keep track of errors. I have taken it off because I am not 
 
 #### Git
 I have tracked the major changes with git.
-
-#### Xcode 11.2 beta
-I am running on Xcode 11.2 beta. My Mac is running low on space and that’s why I haven’t been able to update to the latest version but please let me know if you aren’t able to get it working on your system. My email is pmdesai@syr.edu
 
 #### Things I will add in version 2.0
 - Unit tests. I wanted to generate couple of mock sons with valid and invalid data to test the conflict algorithm.
